@@ -4,7 +4,7 @@
 
 {
     "name": "server configuration environment files",
-    "version": "19.0.1.0.4",
+    "version": "20.0.1.0.4",
     "depends": ["base", "base_sparse_field"],
     "author": "Camptocamp,Odoo Community Association (OCA)",
     "summary": "move some configurations out of the database",
@@ -13,7 +13,7 @@
     "development_status": "Production/Stable",
     "category": "Tools",
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/res_groups.xml",
         "serv_config.xml",
     ],
