@@ -209,6 +209,9 @@ class ServerConfiguration(models.TransientModel):
                 sparse="config",
                 readonly=True,
             )
+            # Odoo 20 asserts a field carries its module in __set_name__; a field
+            # built at registry time has none, so name it here.
+            tmp_field._module = "server_environment"
             setattr(
                 ServerConfiguration,
                 col_name,

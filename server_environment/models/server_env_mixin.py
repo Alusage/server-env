@@ -381,6 +381,9 @@ class ServerEnvMixin(models.AbstractModel):
                 # on new records
                 default=True,
             )
+            # Odoo 20 asserts a field carries its module in __set_name__; a field
+            # built at registry time has none, so name it before adding.
+            field._module = "server_environment"
             add_field(self.env.registry[self._name], fieldname, field)
 
     def _server_env_add_default_field(self, base_field):
@@ -414,6 +417,9 @@ class ServerEnvMixin(models.AbstractModel):
             if hasattr(base_field, "selection"):
                 field_args["selection"] = base_field.selection
             field = base_field_cls(**field_args)
+            # Odoo 20 asserts a field carries its module in __set_name__; a field
+            # built at registry time has none, so name it before adding.
+            field._module = "server_environment"
             add_field(self.env.registry[self._name], fieldname, field)
 
     @api.model
